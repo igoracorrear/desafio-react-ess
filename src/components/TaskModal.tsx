@@ -12,12 +12,14 @@ interface TaskModalProps {
 const TaskModal = ({ task, onClose, onUpdate, onDelete }: TaskModalProps) => {
   const [description, setDescription] = useState(task.description);
   const [status, setStatus] = useState(task.status);
+  const [priority, setPriority] = useState(task.priority);
 
   const handleSave = () => {
     onUpdate({
       ...task,
       description,
-      status
+      status,
+      priority
     });
     onClose();
   };
@@ -42,6 +44,15 @@ const TaskModal = ({ task, onClose, onUpdate, onDelete }: TaskModalProps) => {
               <option value="Realizando">Realizando</option>
               <option value="Concluída">Concluída</option>
             </select>
+            <select
+              value={priority || ''}
+              onChange={(e) => setPriority(e.target.value as Task['priority'] || null)}
+              className="bg-gray-700 text-white px-3 py-1 rounded border border-gray-600 focus:outline-none focus:border-gray-400"
+            >
+              <option value="">Sem prioridade</option>
+              <option value="High">Alta</option>
+              <option value="Low">Baixa</option>
+            </select>
             <button
               onClick={handleDelete}
               className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors"
@@ -52,7 +63,7 @@ const TaskModal = ({ task, onClose, onUpdate, onDelete }: TaskModalProps) => {
               onClick={onClose}
               className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors"
             >
-              Editar informações
+              Fechar
             </button>
           </div>
         </div>
