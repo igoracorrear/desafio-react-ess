@@ -1,73 +1,62 @@
-# Welcome to your Lovable project
+# Desafio React: Kanban Board para Gestão de Tarefas
 
-## Project info
+Este projeto é uma aplicação web de um quadro Kanban, desenvolvida como parte do desafio de React da disciplina de Engenharia de Software. O objetivo é criar uma interface para gerenciar tarefas, permitindo ao usuário adicionar, mover, editar e excluir atividades de forma intuitiva.
 
-**URL**: https://lovable.dev/projects/e2f97fce-9a6c-46cf-80f0-788bd599a7de
+---
 
-## How can I edit this code?
+## 🚀 Versão Online
 
-There are several ways of editing your application.
+A aplicação está publicada e pode ser acessada através do seguinte link:
 
-**Use Lovable**
+**[https://desafio-react-ess.lovable.app/](https://desafio-react-ess.lovable.app/)**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e2f97fce-9a6c-46cf-80f0-788bd599a7de) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ✨ Funcionalidades Principais
 
-**Use your preferred IDE**
+* **Visualização em Kanban:** As tarefas são organizadas em três colunas: "Pendente", "Realizando" e "Concluída".
+* **Adicionar Tarefas:** Criação de novas atividades com título e descrição.
+* **Editar Tarefas:** Modificação das informações de uma tarefa existente.
+* **Mover entre Colunas:** Alteração do status de uma tarefa para refletir seu progresso.
+* **Excluir Tarefas:** Remoção de tarefas do quadro.
+* **Filtragem de Tarefas:** Busca de atividades pelo título.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠️ Tecnologias Utilizadas
 
-Follow these steps:
+O projeto foi construído utilizando as seguintes tecnologias e conceitos:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+* **[React](https://react.dev/)**: Biblioteca JavaScript para construção de interfaces de usuário.
+* **[Vite](https://vitejs.dev/)**: Ferramenta de build moderna para desenvolvimento frontend.
+* **Hooks do React**: (`useState`, `useEffect`) para gerenciamento de estado e ciclo de vida dos componentes.
+* **Componentização**: A estrutura do código é modularizada em componentes reutilizáveis.
+* **CSS**: Para estilização e fidelidade ao protótipo do Figma.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## ⚙️ Como Executar o Projeto Localmente
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Para rodar este projeto em sua máquina, siga os passos abaixo:
 
-**Edit a file directly in GitHub**
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/igoracorrear/desafio-react-ess.git](https://github.com/igoracorrear/desafio-react-ess.git)
+    ```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+2.  **Acesse a pasta do projeto:**
+    ```bash
+    cd desafio-react-ess
+    ```
 
-**Use GitHub Codespaces**
+3.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+4.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/e2f97fce-9a6c-46cf-80f0-788bd599a7de) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Após executar o último comando, o projeto estará disponível em `http://localhost:5173` (ou em outra porta, caso a 5173 esteja em uso).
