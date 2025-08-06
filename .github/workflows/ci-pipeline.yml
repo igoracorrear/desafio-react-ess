@@ -1,0 +1,42 @@
+# Nome do workflow que aparecerá na aba "Actions" do GitHub
+name: CI Pipeline - Teste e Build
+
+# Gatilho (trigger): Quando este workflow deve rodar?
+on:
+  # Roda em todo push para a branch "main"
+  push:
+    branches: [ "main" ]
+  # Roda em toda abertura ou atualização de Pull Request para a branch "main"
+  pull_request:
+    branches: [ "main" ]
+
+# Jobs: Conjunto de tarefas a serem executadas
+jobs:
+  # Nome do nosso único job: build-and-test
+  build-and-test:
+    # Ambiente de execução: uma máquina virtual com a última versão do Ubuntu
+    runs-on: ubuntu-latest
+
+    # Passos (steps) que o job executará em sequência
+    steps:
+      # 1. Checkout do código: Baixa o seu código do repositório para a máquina virtual
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # 2. Setup do Node.js: Configura o ambiente com Node.js, necessário para projetos React
+      - name: Setup do Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Usando uma versão LTS (Long-Term Support) do Node
+
+      # 3. Instalar dependências: Executa 'npm ci' que é otimizado para ambientes de CI
+      - name: Instalar dependências
+        run: npm ci
+
+      # 4. Executar o Linter: Verifica a padronização e qualidade do código
+      - name: Executar Linter
+        run: npm run lint
+
+      # 5. Executar o Build: Tenta compilar a aplicação para produção
+      - name: Build do projeto
+        run: npm run build
