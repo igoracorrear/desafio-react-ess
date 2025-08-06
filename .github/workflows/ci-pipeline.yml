@@ -19,26 +19,32 @@ jobs:
 
     # Passos (steps) que o job executará em sequência
     steps:
-      # 1. Checkout do código: Baixa o seu código do repositório para a máquina virtual
+      # 1. Checkout do código
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # 2. Setup do Node.js: Configura o ambiente com Node.js, necessário para projetos React
+      # 2. Setup do Node.js
       - name: Setup do Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Usando uma versão LTS (Long-Term Support) do Node
+          node-version: '20'
 
-      # 3. Força a limpeza de cache e reinstalação das dependências
-      - name: Limpar cache e instalar dependências
+      # 3. Instalar dependências
+      - name: Instalar dependências
+        run: npm install
+
+      # 4. DEBUG: Lista os arquivos para investigar o erro
+      - name: DEBUG - Listar arquivos do projeto
         run: |
-          rm -rf node_modules
-          npm install
+          echo "=================================================="
+          echo "Procurando por qualquer arquivo com 'textarea' no nome..."
+          find . -iname "*textarea*"
+          echo "=================================================="
 
-      # 4. Executar o Linter: Verifica a padronização e qualidade do código
+      # 5. Executar o Linter
       - name: Executar Linter
         run: npm run lint
 
-      # 5. Executar o Build: Tenta compilar a aplicação para produção
+      # 6. Executar o Build
       - name: Build do projeto
         run: npm run build
