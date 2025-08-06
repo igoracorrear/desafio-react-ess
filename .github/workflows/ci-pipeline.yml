@@ -29,9 +29,11 @@ jobs:
         with:
           node-version: '20' # Usando uma versão LTS (Long-Term Support) do Node
 
-      # 3. Instalar dependências: Executa 'npm ci' que é otimizado para ambientes de CI
-      - name: Instalar dependências
-        run: npm ci
+      # 3. Força a limpeza de cache e reinstalação das dependências
+      - name: Limpar cache e instalar dependências
+        run: |
+          rm -rf node_modules
+          npm install
 
       # 4. Executar o Linter: Verifica a padronização e qualidade do código
       - name: Executar Linter
