@@ -33,18 +33,10 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      # 4. DEBUG: Lista os arquivos para investigar o erro
-      - name: DEBUG - Listar arquivos do projeto
-        run: |
-          echo "=================================================="
-          echo "Procurando por qualquer arquivo com 'textarea' no nome..."
-          find . -iname "*textarea*"
-          echo "=================================================="
-
-      # 5. Executar o Linter
+      # 4. Executar o Linter (desabilitando o cache)
       - name: Executar Linter
-        run: npm run lint
+        run: npm run lint -- --no-eslint-cache
 
-      # 6. Executar o Build
+      # 5. Executar o Build
       - name: Build do projeto
         run: npm run build
