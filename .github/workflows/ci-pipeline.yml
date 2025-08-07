@@ -33,9 +33,9 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      # 4. Executar o Linter (desabilitando o cache)
+      # 4. Executar o Linter (com o comando correto para desabilitar o cache)
       - name: Executar Linter
-        run: npm run lint -- --no-eslint-cache
+        run: npm run lint -- --no-cache
 
       # 5. Executar o Build
       - name: Build do projeto
