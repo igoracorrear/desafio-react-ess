@@ -40,3 +40,5 @@ jobs:
       # 5. Executar o Build
       - name: Build do projeto
         run: npm run build
+
+
