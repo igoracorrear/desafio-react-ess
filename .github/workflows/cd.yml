@@ -1,0 +1,21 @@
+# Workflow de Entrega Contínua (CD)
+name: CD - Deploy para Vercel
+
+on:
+  # Gatilho: rodar apenas em push para a branch main
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy-to-vercel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Deploy para Vercel
+        uses: vercel/vercel-action@v3
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
